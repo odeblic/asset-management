@@ -11,14 +11,19 @@ def gamble(stake):
   else:
     return -stake
 
-def display(player, bankroll):
+def display_header():
+  print('player\tinitial bankroll\tfinal bankroll\tstatus')
+
+def display_line(player, bankroll):
   if bankroll > INITIAL_CASH:
-    status = "(win !!!)"
+    status = "winner"
   else:
-    status = ""
-  print "[player n°%02.d]\tbankroll : % 15.2f $   %s" % (player, bankroll, status)
+    status = "loser"
+  #print("{02.}\t% 15.2f $\t% 15.2f $\t%s".format(player, INITIAL_CASH, bankroll, status))
+  print "%02.d\t% 15.2f $\t% 15.2f $\t%s" % (player, INITIAL_CASH, bankroll, status)
 
 def play():
+  display_header()
   for player in range(1, 41):
     bankroll = INITIAL_CASH
     draws = 0
@@ -26,7 +31,7 @@ def play():
       bet = random.random() # 0.25
       bankroll += gamble(bankroll * bet)
       draws += 1
-    display(player, bankroll)
+    display_line(player, bankroll)
 
 play()
 
