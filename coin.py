@@ -19,7 +19,7 @@ def display_line(bet, bankroll):
     status = "winner"
   else:
     status = "loser"
-  print "[bet %d %%]\tbankroll : % 15.2f €   %s" % (int(bet * 100), bankroll, status)
+  print("{:02d}%\t${:.2f}\t${:.2f}\t{}".format(int(bet * 100), INITIAL_CASH, bankroll, status))
 
 def play():
   display_header()

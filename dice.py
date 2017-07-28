@@ -19,8 +19,7 @@ def display_line(player, bankroll):
     status = "winner"
   else:
     status = "loser"
-  #print("{02.}\t% 15.2f $\t% 15.2f $\t%s".format(player, INITIAL_CASH, bankroll, status))
-  print "%02.d\t% 15.2f $\t% 15.2f $\t%s" % (player, INITIAL_CASH, bankroll, status)
+  print("{:02d}\t${:.2f}\t${:.2f}\t{}".format(player, INITIAL_CASH, bankroll, status))
 
 def play():
   display_header()
